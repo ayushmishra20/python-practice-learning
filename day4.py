@@ -32,3 +32,57 @@ lines = ['line1', 'line2', 'line3', 'lin4']
 for line in lines:
     f.write(line + '\n')
 f.close()
+
+
+
+# seek and tell
+
+f = open('myfile.txt', 'r')
+f.seek(7)
+print(f.tell())
+data = f.read(10)
+print(data)
+
+with open('myfile.txt', 'w') as f:
+    f.write("hello world!!")
+    f.truncate(5)
+
+with open('myfile.txt', 'r') as f:
+    print(f.read())
+
+# Lambda Function
+def appli(fx , value):
+    return  fx(value) +10
+
+double = lambda x : x*2
+cube = lambda x: x*x*x
+quad = lambda x: x*x*x*x
+
+print(double(3))
+print(appli(cube , 2))
+
+# MAP
+def cube(x):
+    return x*x*x
+
+l = [1,2,3,4,5,6,7,8,9,10]
+newl = list(map(cube() , l))
+print(newl)
+
+# Filter
+def filter_function(x):
+    return x >5
+
+new_l = list(filter(filter_function(l)))
+print(new_l)
+
+
+from functools import reduce
+
+numbers = [1,2,3,4,5,6,7,8]
+def mysum(x,y):
+    return x+y
+
+sum = reduce(mysum, numbers)
+print(sum)
+
